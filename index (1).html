@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirror Tattoo Studio: Master Course Portfolio</title>
+    <style>
+        :root {
+            --orange-gradient: linear-gradient(120deg, #ff931e 0%, #ff5a36 100%);
+            --white: #fff;
+            --heading: #ff5a36;
+            --body: #2e2c2c;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--white);
+            font-family: 'Inter', Arial, sans-serif;
+            color: var(--body);
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: var(--orange-gradient);
+            color: #fff;
+            padding: 2rem 1rem 1rem;
+            text-align: center;
+        }
+        .studio-logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .insta-link {
+            display: inline-block;
+            margin-top: 0.75rem;
+            background: #fff;
+            color: #ff5a36;
+            border-radius: 999px;
+            padding: 0.5rem 1.25rem;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background .2s, color .2s;
+            border: none;
+        }
+        .insta-link:hover {
+            background: #ffe2d0;
+        }
+        .hero {
+            font-size: 1.25rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .section {
+            max-width: 700px;
+            margin: 1.5rem auto;
+            background: #fff;
+            box-shadow: 0 2px 18px rgba(255,90,54,0.09);
+            border-radius: 1.2rem;
+            padding: 2rem 1.2rem;
+        }
+        .section-title {
+            color: var(--heading);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: .7rem;
+            letter-spacing: 0.02em;
+        }
+        .before-after-gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.2rem;
+            margin-bottom: 1rem;
+            scroll-snap-type: x mandatory;
+        }
+        .ba-card {
+            min-width: 320px;
+            background: linear-gradient(112deg, #ffeada 40%, #fff 100%);
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px rgba(255,90,54,0.10);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+            scroll-snap-align: center;
+        }
+        .ba-label {
+            background: var(--orange-gradient);
+            color: #fff;
+            font-size: .92rem;
+            font-weight: bold;
+            border-radius: 13px;
+            padding: 0.25rem 1rem;
+            margin: 1rem 0 0.5rem;
+        }
+        .ba-images {
+            display: flex;
+            gap: 1rem;
+        }
+        .ba-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 14px;
+            border: 2.5px solid #ffbe8e;
+        }
+        .ba-caption {
+            font-size: 0.95rem;
+            color: #a97259;
+            padding-bottom: 0.8rem;
+        }
+        .course-block {
+            background: linear-gradient(114deg, #fff5ec 33%, #ffead3 100%);
+            border-radius: 1.1rem;
+            padding: 1rem 1rem 1.3rem 1rem;
+            margin-top: 1rem;
+            box-shadow: 0 1px 10px rgba(255,90,54,0.10);
+        }
+        .course-features {
+            list-style: disc inside;
+            padding-left: 1rem;
+            font-size: 1.05rem;
+        }
+        .course-days {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+            gap: .5rem .7rem;
+        }
+        .day-module {
+            background: var(--orange-gradient);
+            color: #fff;
+            font-size: 0.99rem;
+            border-radius: 7px;
+            padding: 0.35rem 0.8rem;
+        }
+        .cta-form {
+            background: var(--orange-gradient);
+            color: #fff;
+            border-radius: 1.3rem;
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            margin-bottom: 1.2rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 0px 14px rgba(255,90,54,.12);
+        }
+        .form-title {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: #fff;
+        }
+        .input-box {
+            margin-bottom: 1.1rem;
+        }
+        .input-box input, .input-box textarea {
+            width: 100%;
+            border-radius: 8px;
+            border: none;
+            padding: .8rem .8rem;
+            font-size: 1rem;
+            margin-top: .3rem;
+            box-shadow: 0 1px 4px rgba(255,90,54,0.08);
+        }
+        .input-box textarea {
+            resize: vertical;
+            min-height: 2.2em;
+            max-height: 6em;
+        }
+        .register-btn {
+            background: #fff;
+            color: #ff5a36;
+            border: none;
+            font-size: 1.13rem;
+            font-weight: bold;
+            border-radius: 30px;
+            padding: .6rem 1.85rem;
+            margin-top: .2rem;
+            cursor: pointer;
+            box-shadow: 0 0 0.5em #ffbe8e77;
+            letter-spacing: .05em;
+            transition: background .2s, color .2s;
+        }
+        .register-btn:hover {
+            background: #ffb073;
+            color: #fff;
+        }
+        @media (max-width: 600px) {
+            .section {
+                padding: 1.3rem 0.4rem;
+            }
+            .ba-card {
+                min-width: 240px;
+            }
+            .ba-img {
+                width: 90px;
+                height: 90px;
+            }
+        }
+        .footer {
+            text-align: center;
+            padding: 1.5rem 1rem 0.5rem;
+            font-size: 0.98rem;
+            color: #c86f34;
+        }
+        .social-links {
+            margin-top: 0.8rem;
+            display: flex;
+            gap: 1.15rem;
+            justify-content: center;
+        }
+        .social-link {
+            background: #ff931e17;
+            border-radius: 50%;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            transition: background .2s;
+            color: #ff5a36;
+            font-size: 1.1rem;
+        }
+        .social-link:hover {
+            background: #ff931e44;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="studio-logo">Mirror Tattoo Studio</div>
+        <div class="hero">Upskill with Our 14-Day Master Course</div>
+        <a class="insta-link" href="https://www.instagram.com/mirror_tattoo_studio/" target="_blank" rel="noopener">View Instagram</a>
+    </header>
+
+    <section class="section">
+        <div class="section-title">Student Transformations</div>
+        <div style="text-align:center; margin-top:1rem;">
+            <img src="https://images.unsplash.com/photo-1590246814883-57c511e2a0e7?auto=format&fit=crop&w=700&q=80" alt="Student Tattoo Work Showcase" style="width:100%; max-width:500px; border-radius:1rem; box-shadow: 0 8px 24px rgba(255,90,54,0.15);">
+            <div style="margin-top:0.8rem; font-size:1.05rem; color:#a97259; font-weight:500;">From beginner to pro-level artistry in just 14 days</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">Why Enroll at Mirror Tattoo Studio?</div>
+        <div style="display:grid; gap:1rem; margin-top:1rem;">
+            <div style="background:linear-gradient(112deg, #fff5ec 40%, #ffead3 100%); padding:1.2rem; border-radius:1rem; border-left:4px solid #ff5a36;">
+                <div style="font-weight:700; font-size:1.1rem; color:#ff5a36; margin-bottom:0.4rem;">🎓 For Students & Beginners</div>
+                <div style="font-size:1rem; line-height:1.5;">Start your tattoo career from scratch with professional guidance. No experience needed—just passion! Get certified and build a stunning portfolio to launch your career.</div>
+            </div>
+            <div style="background:linear-gradient(112deg, #fff5ec 40%, #ffead3 100%); padding:1.2rem; border-radius:1rem; border-left:4px solid #ff5a36;">
+                <div style="font-weight:700; font-size:1.1rem; color:#ff5a36; margin-bottom:0.4rem;">🚀 For Working Artists</div>
+                <div style="font-size:1rem; line-height:1.5;">Level up your technique with advanced methods in realism, color theory, and complex designs. Learn business strategies to grow your client base and charge premium rates.</div>
+            </div>
+            <div style="background:linear-gradient(112deg, #fff5ec 40%, #ffead3 100%); padding:1.2rem; border-radius:1rem; border-left:4px solid #ff5a36;">
+                <div style="font-weight:700; font-size:1.1rem; color:#ff5a36; margin-bottom:0.4rem;">💼 Career-Ready Certification</div>
+                <div style="font-size:1rem; line-height:1.5;">Receive an internationally recognized certificate upon completion. Open doors to studio jobs, freelance opportunities, or start your own tattoo business.</div>
+            </div>
+            <div style="background:linear-gradient(112deg, #fff5ec 40%, #ffead3 100%); padding:1.2rem; border-radius:1rem; border-left:4px solid #ff5a36;">
+                <div style="font-weight:700; font-size:1.1rem; color:#ff5a36; margin-bottom:0.4rem;">🎨 Hands-On Live Practice</div>
+                <div style="font-size:1rem; line-height:1.5;">Train on real skin under expert supervision. Build confidence and master techniques with immediate feedback. Leave with actual portfolio pieces!</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">14-Day Master Tattoo Course</div>
+        <div class="course-block">
+            <ul class="course-features">
+                <li>Advanced Tattoo Techniques</li>
+                <li>Professional Machine Mastery</li>
+                <li>Advanced Color Theory in Tattooing</li>
+                <li>Complex Skin Types & Situations</li>
+                <li>Tattoo Design & Composition</li>
+                <li>Business & Client Management at an Advanced Level</li>
+                <li>Safety, Sanitation & Procedure</li>
+                <li>Digital Tools for Tattoo Artists</li>
+                <li>Creative Development</li>
+            </ul>
+            <div style="margin:1.2rem 0 0.3rem;font-weight:600;color:#ff932e;">Course Modules Day-by-Day:</div>
+            <div class="course-days">
+                <span class="day-module">Day 1-2: Fundamentals, hygiene</span>
+                <span class="day-module">Day 3-4: Stencil, lining, shading</span>
+                <span class="day-module">Day 5-7: Realism & color work</span>
+                <span class="day-module">Day 8-10: Portraits, texture</span>
+                <span class="day-module">Day 11-12: Live tattooing</span>
+                <span class="day-module">Day 13: Portfolio, showcase</span>
+                <span class="day-module">Day 14: Certification exam</span>
+            </div>
+        </div>
+        <div style="margin:1.3rem 0 0.2rem;">
+            <b>Who should join?</b> Realism artists, portrait specialists, color experts, or anyone ready to master advanced techniques!
+        </div>
+    </section>
+
+    <section class="section cta-form">
+        <h2 class="form-title">Register for the Next Batch!</h2>
+        <form id="registerForm" autocomplete="off">
+            <div class="input-box">
+                <label for="name">Full Name</label><br/>
+                <input type="text" id="name" name="name" required maxlength="50" placeholder="Your Name">
+            </div>
+            <div class="input-box">
+                <label for="phone">Phone/WhatsApp</label><br/>
+                <input type="tel" id="phone" name="phone" required maxlength="15" placeholder="+91 755 927 4699">
+            </div>
+            <div class="input-box">
+                <label for="about">Tell Us Your Skill Level/Reason (optional)</label><br>
+                <textarea id="about" name="about" maxlength="200" placeholder="Beginner, Intermediate, Existing Artist, etc."></textarea>
+            </div>
+            <button type="submit" class="register-btn">Register Now</button>
+        </form>
+        <div id="formSuccess" style="display:none; padding: 1rem 0 0.5rem; color:#fff; font-weight:bold;">
+            ✅ Thank you for registering! We’ll WhatsApp you with details soon.
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div>Follow & Contact:</div>
+        <div class="social-links">
+            <a class="social-link" href="https://www.instagram.com/mirror_tattoo_studio/" target="_blank" aria-label="Instagram"><span>📷</span></a>
+            <a class="social-link" href="https://wa.me/917559274699" target="_blank" aria-label="WhatsApp"><span>💬</span></a>
+            <a class="social-link" href="mailto:ravi.scorpion3@gmail.com" aria-label="Email"><span>✉️</span></a>
+        </div>
+        <div style="margin-top:0.8rem">
+            &copy; 2025 Mirror Tattoo Studio &bull; Nagpur
+        </div>
+    </footer>
+
+    <script>
+        // Registration form fake submission
+        document.getElementById('registerForm').onsubmit = function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+        };
+        // Optionally, add swipe support for gallery cards, etc.
+    </script>
+</body>
+</html>
